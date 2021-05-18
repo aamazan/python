@@ -35,9 +35,11 @@ class Deck:
     def shuffle(self):
         temp = self.deck
         for i in temp:
-            new = randint(0,len(temp)) # TODO: actually code  this one, silly
-
-        return
+            tin = randint(0,len(temp)) #  temporary index
+            tca = temp[tin] # save random card
+            temp[tin] = temp[i]
+            temp[i] = tca
+        self.deck = temp
 
     def deal(self):
         return
