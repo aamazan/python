@@ -7,8 +7,9 @@ class Card:
 
 
 class Deck:
-    def __init__(self, deck):
+    def __init__(self, deck, discard):
         self.deck = []
+        self.discard = []
         for i in range(1,5): # suits,
             for j in range(1,14):
                 if i == 1:
@@ -31,11 +32,22 @@ class Deck:
                     num = "K"
                 self.deck.append() = Card(suit, num)
 
-    def shuffle():
+    def shuffle(self):
+        temp = self.deck
+        for i in temp:
+            new = randint(0,len(temp)) # TODO: actually code  this one, silly
+
         return
 
-    def deal():
+    def deal(self):
         return
 
-    def draw():
+    def draw(self):
+        return self.deck.pop()
+
+    def discard(self):
+        self.discard.append(self.deck.pop())
+        return
+
+    def reset(self):
         return
