@@ -1,5 +1,6 @@
 ## Practice program for inheritance and other class-related topics
 
+
 class Card:
     def __init__(self, suit, number):
         self.suit = suit
@@ -37,8 +38,8 @@ class Deck:
         for i in temp:
             tin = randint(0,len(temp)) #  temporary index
             tca = temp[tin] # save random card
-            temp[tin] = temp[i]
-            temp[i] = tca
+            temp[tin] = temp[i] # set aforementioned random card to card at i
+            temp[i] = tca # set cart at i to original random card
         self.deck = temp
 
     def deal(self):
@@ -53,3 +54,6 @@ class Deck:
 
     def reset(self):
         return
+
+class Game:
+    def __init__(self, players, pot, deck):
