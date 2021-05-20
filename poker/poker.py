@@ -1,6 +1,21 @@
 ## Implementation of a Poker model for a planned application
 ## Model source: http://cowboyprogramming.com/2007/01/04/programming-poker-ai/
 
+## notes to self for implementation:
+# round counter, player status, side pots, player bet, database check for hands,
+# hand calculation, probability of winning calculation, hand sorts (suit, rank)
+#
+# remember that hand calculation must take all combinations of the player's hand
+# and the drawn cards and return the best of them
+#
+# player status check must include side-bets (player has gone all-in but others
+# still have money for remaining rounds)
+#
+# as such, the game should have a global check to see if all active players have
+# gone all-in, as well as when all players have been knocked payout
+#
+# include a case for hand comparison that splits pot between hands of equal value
+
 
 class Card:
     def __init__(self, value):
@@ -39,7 +54,7 @@ class Deck:
 
     def draw(self):
         return self.deck.pop()
-suit, rank
+
     def discard(self):
         self.discard.append(self.deck.pop())
         return
@@ -47,8 +62,29 @@ suit, rank
     def reset(self):
         return
 
+Class Player:
+    def __init__(self, name, money, hand, betval, status):
+        self.name = "Player"
+        self.money = 5000
+        self.hand = []
+        self.betval = 0
+        self.status = 0 # binary, where 1 is "folded" and 0 is still playing
+
+
 class Game:
     def __init__(self, players, pot, deck):
         self.players = []
         self.pot = 0
         self.deck = Deck()
+
+
+## game loop pseudocode
+# initialize deck, set player order and blinds
+# take blinds, deal cards (pop out of deck into hands in player order)
+# "under the gun" begins blinds-betting round, iterate through players
+# if bet, iterate through players until bet is matched, raised, or folded
+#        (maybe at final player, check status of players/bets)
+# once players are iterated through, deal and burn cards. start next round of bets.
+#        need round counter, definitely need number of players/status check
+# at end of round, if number of players >= 2 (remember to include side pots!)
+#        showdown, calculate winning hand, payout
