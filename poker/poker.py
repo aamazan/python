@@ -70,12 +70,47 @@ Class Player:
         self.betval = 0
         self.status = 0 # binary, where 1 is "folded" and 0 is still playing
 
+    def sortSuit(): # if same suit, sort by rank
+    def sortRank(): # if same rank, sort by suit (0-3)
+
 
 class Game:
     def __init__(self, players, pot, deck):
         self.players = []
         self.pot = 0
         self.deck = Deck()
+
+
+# evalSeq takes a player's hand and returns whether it is a sequence or not and
+#   the sequence if so
+    def evalSeq(): # TODO: figure out sequence algorithm
+        # sort by rank
+        # create three lists of subsets of cards to avoid nested loops
+            # (groups 0-4, 1-5, 2-6)
+        # set seq = false (0), counter = 0
+        # while counter < 5
+            # if hand[counter].rank == hand[counter + 1] + 1
+            #   counter++
+            # else break
+        # if counter == 4
+                # return seq = true, sequence group
+        # else return seq = false, empty group
+
+
+    def evalSuit():
+        # count number of same suit
+        # if 5, flush, else not
+
+    def evalPairs():
+        # base on number of cards of same rank
+        # 2: one pair
+        # 3: three of a kind
+        # 4: two pair or four of a kind, check
+        # 5: full house
+    def evalRank():
+        # compare ranks of two hands until one has a higher high card
+        # if full house, compare three of a kind rank before pair rank
+
 
 
 ## game loop pseudocode
