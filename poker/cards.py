@@ -57,3 +57,6 @@ class Deck:
 
 class Game:
     def __init__(self, players, pot, deck):
+        self.players = []
+        self.pot = 0
+        self.deck = Deck()
