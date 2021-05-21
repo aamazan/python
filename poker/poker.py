@@ -49,8 +49,7 @@ class Deck:
             temp[i] = tca # overwrite ith card with save card
         self.deck = temp # overwrites original deck with shuffled temp
 
-    def deal(self):
-        return
+
 
     def draw(self):
         return self.deck.pop()
@@ -79,6 +78,13 @@ class Game:
         self.players = []
         self.pot = 0
         self.deck = Deck()
+
+    def deal(self):
+            for i in self.players:
+                self.players[i].hand.append(self.deck.draw())
+            for j in self.players:
+                self.players[j].hand.append(self.deck.draw())
+        return
 
 
 # evalSeq takes a player's hand and returns whether it is a sequence or not and
