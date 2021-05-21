@@ -1,54 +1,23 @@
-## Implementation of a Poker model for a planned application
-## Model source: http://cowboyprogramming.com/2007/01/04/programming-poker-ai/
-
-
-class Card:
-    def __init__(self, value):
-        self.value = 0
-
-    def rank(self):
-        return self.value%13
-
-    def suit(self):
-        return self.value/13
-
-    def card(self):
-        return self.value*13 + self.rank()
 
 
 
+## notes to self for implementation:
+# round counter, player status, side pots, player bet, database check for hands,
+# hand calculation, probability of winning calculation, hand sorts (suit, rank)
+#
+# remember that hand calculation must take all combinations of the player's hand
+# and the drawn cards and return the best of them
+#
+# player status check must include side-bets (player has gone all-in but others
+# still have money for remaining rounds)
+#
+# as such, the game should have a global check to see if all active players have
+# gone all-in, as well as when all players have been knocked payout
+#
+# include a case for hand comparison that splits pot between hands of equal value
 
-class Deck:
-    def __init__(self, deck, discard):
-        self.deck = []
-        self.discard = []
-        for i in range(0,52):
-                self.deck.append() = Card(i)
 
-    def shuffle(self):
-        temp = self.deck
-        for i in temp: # for the number of cards
-            tin = randint(0,len(temp)) # choose a random index
-            tca = temp[tin] # save card at aforementioned index
-            temp[tin] = temp[i] # overwrite chosen card with card at i
-            temp[i] = tca # overwrite ith card with save card
-        self.deck = temp # overwrites original deck with shuffled temp
 
-    def deal(self):
-        return
-
-    def draw(self):
-        return self.deck.pop()
-suit, rank
-    def discard(self):
-        self.discard.append(self.deck.pop())
-        return
-
-    def reset(self):
-        return
-
-class Game:
-    def __init__(self, players, pot, deck):
-        self.players = []
-        self.pot = 0
-        self.deck = Deck()
+##  5/21/21 -- Separated classes into distinct files for organizational reasons.
+##             Will be using this file for notes temporarily before eventually
+##             deleting it.
