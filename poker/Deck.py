@@ -26,4 +26,6 @@ class Deck:
         return
 
     def reset(self):
+        self.deck = Deck()
+        self.deck.shuffle()
         return

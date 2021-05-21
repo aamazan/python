@@ -15,7 +15,7 @@ class Game:
         return
 
 
-# evalSeq takes a player's hand and returns whether it is a sequence or not and
+# evalseq takes a player's hand and returns whether it is a sequence or not and
 #   the sequence if so
     def evalseq(): # TODO: figure out sequence algorithm
         # sort by rank
@@ -31,11 +31,15 @@ class Game:
         # else return seq = false, empty group
         return
 
+
+# evalsuit counts the number of suited cards amongst the given player's options
+#   and returns whether a flush exists and if so, which cards compose the flush
     def evalsuit():
         # count number of same suit
         # if 5, flush, else not
         return
 
+# evalpairs counts the number of same-rank cards in a set of cards
     def evalpairs():
         # base on number of cards of same rank
         # 2: one pair
@@ -44,18 +48,20 @@ class Game:
         # 5: full house
         return
 
+# evalrank compares the rank of each card between two players until one player
+#   has a higher card or both players tie
     def evalrank():
         # compare ranks of two hands until one has a higher high card
         # if full house, compare three of a kind rank before pair rank
         return
 
-    ## game loop pseudocode
-    # initialize deck, set player order and blinds
-    # take blinds, deal cards (pop out of deck into hands in player order)
-    # "under the gun" begins blinds-betting round, iterate through players
-    # if bet, iterate through players until bet is matched, raised, or folded
-    #        (maybe at final player, check status of players/bets)
-    # once players are iterated through, deal and burn cards. start next round of bets.
-    #        need round counter, definitely need number of players/status check
-    # at end of round, if number of players >= 2 (remember to include side pots!)
-    #        showdown, calculate winning hand, payout
+## game loop pseudocode
+# initialize deck, set player order and blinds
+# take blinds, deal cards (pop out of deck into hands in player order)
+# "under the gun" begins blinds-betting round, iterate through players
+# if bet, iterate through players until bet is matched, raised, or folded
+#        (maybe at final player, check status of players/bets)
+# once players are iterated through, deal and burn cards. start next round of bets.
+#        need round counter, definitely need number of players/status check
+# at end of round, if number of players >= 2 (remember to include side pots!)
+#        showdown, calculate winning hand, payout
