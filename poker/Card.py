@@ -1,4 +1,5 @@
-## The Card class defines the "card" object and its respective functions
+#!/usr/bin/env python
+"""The Card class defines the "card" object and its respective functions."""
 
 class Card:
     def __init__(self, value):

@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+"""Game.py defines the game's logic and manages most of the game's processes."""
 import Player
 import Deck
 
@@ -6,6 +8,7 @@ class Game:
         self.players = []
         self.pot = 0
         self.deck = Deck()
+
 
     def deal(self):
             for i in self.players:
@@ -34,10 +37,18 @@ class Game:
 
 # evalsuit counts the number of suited cards amongst the given player's options
 #   and returns whether a flush exists and if so, which cards compose the flush
-    def evalsuit():
-        # count number of same suit
-        # if 5, flush, else not
-        return
+    def evalsuit(self, player):
+        # need both the player's hand and commu.
+        test = self.deck.community + player.hand
+        suited = 0
+        for i in range(0,len(test)-2)
+            if test[i].suit() == test[i+1].suit()
+                suited += 1
+        if suited < 4:
+            return 0 # not a flush
+        else:
+            return 1 # a flush
+
 
 # evalpairs counts the number of same-rank cards in a set of cards
     def evalpairs():
@@ -45,7 +56,9 @@ class Game:
         # 2: one pair
         # 3: three of a kind
         # 4: two pair or four of a kind, check
-        # 5: full house
+        # 5+: full house, check for higher pairs/3oaKs
+            # TODO: have to be able to differentiate between subsets, so
+            #       rank counting isn't going to help.
         return
 
 # evalrank compares the rank of each card between two players until one player

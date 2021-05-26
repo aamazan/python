@@ -1,4 +1,5 @@
-
+#!/usr/bin/env python
+""" Player.py defines the Player class and its associated functions."""
 class Player:
     def __init__(self, name, money, hand, betval, status):
         self.name = "Player"
