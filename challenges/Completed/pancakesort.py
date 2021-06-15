@@ -23,7 +23,6 @@ def flipfront(array, n):
         array[(n-1)-i] = temp
     return array
 
-# returns the set sorted from least to greatest (duplicate-inclusive)
 def pancakesort(array):
     for i in range(0, len(array)):
         l = largest(array[0:len(array)-i]) #largest in current subset
@@ -31,7 +30,7 @@ def pancakesort(array):
         flipfront(array, len(array)-i)
     return array
 
-# test cases (c is duplicate-inclusive case)
+# test cases (c is duplicate-inclusive,obviously)
 # a = [8,6,7,5,3,0,9]
 # b = [2,1,13,1,5,8,3]
 # c = []
