@@ -1,6 +1,7 @@
 #!/usr/bin/env python
-"""pancakesort.py is a solution attempt at a programming challenge (URL listed in comments)"""
+"""pancakesort.py is a solution attempt at a programming challenge (URL below)"""
 # https://www.reddit.com/r/dailyprogrammer/comments/np3sio/20210531_challenge_392_intermediate_pancake_sort/
+
 import math
 import random
 
