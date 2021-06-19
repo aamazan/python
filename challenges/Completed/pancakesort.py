@@ -1,6 +1,7 @@
 #!/usr/bin/env python
-"""pancakesort.py is a solution attempt at a programming challenge (URL listed in comments)"""
+"""pancakesort.py is a solution attempt at a programming challenge (URL below)"""
 # https://www.reddit.com/r/dailyprogrammer/comments/np3sio/20210531_challenge_392_intermediate_pancake_sort/
+
 import math
 import random
 
@@ -23,6 +24,7 @@ def flipfront(array, n):
         array[(n-1)-i] = temp
     return array
 
+# returns the set sorted from least to greatest (duplicate-inclusive)
 def pancakesort(array):
     for i in range(0, len(array)):
         l = largest(array[0:len(array)-i]) #largest in current subset
@@ -30,7 +32,7 @@ def pancakesort(array):
         flipfront(array, len(array)-i)
     return array
 
-# test cases (c is duplicate-inclusive,obviously)
+# test cases (c is duplicate-inclusive case)
 # a = [8,6,7,5,3,0,9]
 # b = [2,1,13,1,5,8,3]
 # c = []
