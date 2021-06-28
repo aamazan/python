@@ -17,7 +17,7 @@ def largest(array):
     return index
 
 # returns the set with the subset indices up to the nth reversed
-def flipfront(array, n):
+def flip_front(array, n):
     for i in range(0,math.floor(n/2)):
         temp = array[i]
         array[i] = array[(n-1)-i]
@@ -25,11 +25,11 @@ def flipfront(array, n):
     return array
 
 # returns the set sorted from least to greatest (duplicate-inclusive)
-def pancakesort(array):
+def pancake_sort(array):
     for i in range(0, len(array)):
         l = largest(array[0:len(array)-i]) #largest in current subset
-        flipfront(array, l+1)
-        flipfront(array, len(array)-i)
+        flip_front(array, l+1)
+        flip_front(array, len(array)-i)
     return array
 
 # test cases (c is duplicate-inclusive case)
