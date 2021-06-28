@@ -6,4 +6,4 @@ Prompt:
 Function prisoner2 takes one input: a series T of 64 bits. It returns a number from 0 to 63.
 Now, you must make it so that if you flip S using the output of prisoner1 and pass the result to prisoner2, you get back the number X. Put another way, the following function must return True for every possible valid input S and X.""
 
-I'm ashamed to admit I was unable to figure out the puzzle myself and instead had to rely on the solutions provided. Regardless, let's go into how the solution works and how I adapted it for code.
+I'm ashamed to admit I was unable to figure out the puzzle myself and instead had to rely on the solutions provided. Regardless, let's go into how the [solution](https://www.youtube.com/watch?v=as7Gkm7Y7h4&t=0s) works and how I adapted it for code.

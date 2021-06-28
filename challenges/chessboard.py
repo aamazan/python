@@ -38,35 +38,44 @@ def solve(S, X):
 
 # check_board takes the current board and determines the encoded binary
 def check_board(s):
-    result = 000000
+    result = "000000"
     check = 0 # for determining number of heads per section
+    resbit = 5
     # columns: designated by %8 (e.g. 8%8 == 0%8 = 0, so same column)
-
+    print(result)
     # every other  (1,3,5,7) ((0-7))
     for i in range(0,64):
-        if i%8 == 1 or i%8 == 3 or i%8 == 5 or i%8 == 7:
+        if (i%8 == 1) or (i%8 == 3) or (i%8 == 5) or (i%8 == 7):
             if s[i] == 1:
                 check += 1
-    result[5] = str(check)
+    checkres = str(check%2)
+    result = result[:resbit].replace("0",checkres) + result[resbit:]
+    print(checkres)
     check = 0 # reinitialize
+    resbit -= 1
 
     # skip two, check two (2,3,6,7)
     for i in range(0,64):
-        if i%8 == 2 or i%8 == 3 or i%8 == 6 or i%8 == 7:
+        if (i%8 == 2) or (i%8 == 3) or (i%8 == 6) or (i%8 == 7):
             if s[i] == 1:
                 check += 1
-    result[4] = str(check)
-    check = 0 #reinit
+    rcheckres = str(check%2)
+    result = result[:resbit].replace("0",checkres) + result[resbit:]
+    check = 0
+    resbit -= 1
+    print(checkres)
 
     # check latter half (4,5,6,7)
     for i in range(0,64):
         if i%8 == 4 or i%8 == 5 or i%8 == 6 or i%8 == 7:
             if s[i] == 1:
                 check += 1
-    result[3] = str(check)
-    check = 0 #reinit
-
+    checkres = str(check%2)
+    result = result[:resbit].replace("0",checkres) + result[resbit:]
+    check = 0
+    resbit -= 1
     row = 0
+    print(checkres)
 
     # rows:
     # every other  (1,3,5,7) ((0-7))
@@ -74,22 +83,29 @@ def check_board(s):
         if row == 1 or row == 3 or row == 5 or row == 7:
             if s[i] == 1:
                 check += 1
-        if i%8 == 7:
+        if (i%8 == 7):
             row += 1
-    result[2] = str(check)
-    check = 0 #reinit
+    checkres = str(check%2)
+    result = result[:resbit].replace("0",checkres) + result[resbit:]
+    check = 0
+    resbit -= 1
     row = 0
+    print(checkres)
 
     # skip two, check two (2,3,6,7)
     for i in range(0,64):
         if row == 2 or row == 3 or row == 6 or row == 7:
             if s[i] == 1:
                 check += 1
+                print("test" + str(check))
         if i%8 == 7:
             row += 1
-    result[1] = str(check)
-    check = 0 #reinit
+    checkres = str(check%2)
+    result = result[:resbit].replace("0",checkres) + result[resbit:]
+    check = 0
+    resbit -= 1
     row = 0
+    print(checkres)
 
     # check latter half (4,5,6,7)
     for i in range(0,64):
@@ -98,6 +114,11 @@ def check_board(s):
                 check += 1
         if i%8 == 7:
             row += 1
-    result[0] = str(check)
+    checkres = str(check%2)
+    result = result[:resbit].replace("0",checkres) + result[resbit:]
+    print(checkres)
 
     return result
+
+test = "11111000000110000110010101010010010010011111100111110101100000100111111110101010"
+print(check_board(test))
