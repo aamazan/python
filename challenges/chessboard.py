@@ -19,7 +19,8 @@ def prisoner1(s, x):
     # count heads in rows, columns to determine current encoding
     # figure out what to xor add to the current to get desired x binary
 
-    # note: must interpret magic square as opposite value
+    # note: must interpret magic square as opposite value, so change the string
+    #       or make a fake one to manipulate in its place
 
 
 
