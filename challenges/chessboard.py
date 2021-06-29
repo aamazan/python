@@ -40,83 +40,94 @@ def solve(S, X):
 def check_board(s):
     result = "000000"
     check = 0 # for determining number of heads per section
-    resbit = 5
+    resbit = 5 # current bit of result being checked for
     # columns: designated by %8 (e.g. 8%8 == 0%8 = 0, so same column)
+
     print(result)
     # every other  (1,3,5,7) ((0-7))
     for i in range(0,64):
-        if (i%8 == 1) or (i%8 == 3) or (i%8 == 5) or (i%8 == 7):
-            if s[i] == 1:
+        if i%8 == 1 or i%8 == 3 or i%8 == 5 or i%8 == 7:
+            if s[i] == "1":
                 check += 1
     checkres = str(check%2)
-    result = result[:resbit].replace("0",checkres) + result[resbit:]
-    print(checkres)
+    temp = list(result)
+    temp[resbit] = checkres
+    result = "".join(temp)
     check = 0 # reinitialize
     resbit -= 1
 
     # skip two, check two (2,3,6,7)
     for i in range(0,64):
         if (i%8 == 2) or (i%8 == 3) or (i%8 == 6) or (i%8 == 7):
-            if s[i] == 1:
+            if s[i] == "1":
                 check += 1
-    rcheckres = str(check%2)
-    result = result[:resbit].replace("0",checkres) + result[resbit:]
+    checkres = str(check%2)
+    temp = list(result)
+    temp[resbit] = checkres
+    result = "".join(temp)
     check = 0
     resbit -= 1
-    print(checkres)
+
 
     # check latter half (4,5,6,7)
     for i in range(0,64):
         if i%8 == 4 or i%8 == 5 or i%8 == 6 or i%8 == 7:
-            if s[i] == 1:
+            if s[i] == "1":
                 check += 1
     checkres = str(check%2)
-    result = result[:resbit].replace("0",checkres) + result[resbit:]
+    temp = list(result)
+    temp[resbit] = checkres
+    result = "".join(temp)
     check = 0
     resbit -= 1
     row = 0
-    print(checkres)
+
 
     # rows:
     # every other  (1,3,5,7) ((0-7))
     for i in range(0,64):
         if row == 1 or row == 3 or row == 5 or row == 7:
-            if s[i] == 1:
+            if s[i] == "1":
                 check += 1
         if (i%8 == 7):
             row += 1
     checkres = str(check%2)
-    result = result[:resbit].replace("0",checkres) + result[resbit:]
+    temp = list(result)
+    temp[resbit] = checkres
+    result = "".join(temp)
     check = 0
     resbit -= 1
     row = 0
-    print(checkres)
+
 
     # skip two, check two (2,3,6,7)
     for i in range(0,64):
         if row == 2 or row == 3 or row == 6 or row == 7:
-            if s[i] == 1:
+            if s[i] == "1":
                 check += 1
-                print("test" + str(check))
         if i%8 == 7:
             row += 1
     checkres = str(check%2)
-    result = result[:resbit].replace("0",checkres) + result[resbit:]
+    temp = list(result)
+    temp[resbit] = checkres
+    result = "".join(temp)
     check = 0
     resbit -= 1
     row = 0
-    print(checkres)
+
 
     # check latter half (4,5,6,7)
     for i in range(0,64):
         if row == 4 or row == 5 or row == 6 or row == 7:
-            if s[i] == 1:
+            if s[i] == "1":
                 check += 1
         if i%8 == 7:
             row += 1
     checkres = str(check%2)
-    result = result[:resbit].replace("0",checkres) + result[resbit:]
-    print(checkres)
+    temp = list(result)
+    temp[resbit] = checkres
+    result = "".join(temp)
+
 
     return result
 
