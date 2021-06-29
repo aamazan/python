@@ -1,4 +1,4 @@
-#### [The Almost Impossible Chessboard Puzzle [intermediate] — 6/26/21](https://www.reddit.com/r/dailyprogrammer/comments/hrujc5/20200715_challenge_385_intermediate_the_almost/)
+#### [The Almost Impossible Chessboard Puzzle [intermediate] — 6/29/21](https://www.reddit.com/r/dailyprogrammer/comments/hrujc5/20200715_challenge_385_intermediate_the_almost/)
 
 
 Prompt:
